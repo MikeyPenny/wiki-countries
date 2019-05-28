@@ -40,9 +40,14 @@ class Home extends Component {
 
         return (
             <div className="home-dashboard">
-                <div className="side-bar">
-                    {countriesJsx}
-                </div>
+                <aside className="menu">
+                    <p className="menu-label">
+                        Countries
+                    </p>
+                    <ul className="menu-list">
+                        {countriesJsx}
+                    </ul>
+                </aside>
                 <div className="dashboard-view">
                     {/* <Route exact path="/" render={(props) => <Country {...props} countries={this.state.countries}/>} /> */}
                     <Route path={`/details/:country`} render={(props) => <Country {...props} countries={this.state.countries}/>}  ></Route>

@@ -1,0 +1,17 @@
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    background-color: #0f8ff4;
+    height: 12vh;
+    color: #fff;
+}
+
+.nav-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+}
+

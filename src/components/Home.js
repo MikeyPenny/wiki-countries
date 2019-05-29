@@ -10,7 +10,8 @@ class Home extends Component {
 
 
     state = {
-        countries : []
+        countries : [],
+        btnStyle:""
     }
 
     componentDidMount() {
@@ -20,11 +21,28 @@ class Home extends Component {
         })
     }
 
+    changeColourBtn = (e) => {
+        const siblings = e.target.parentNode.childNodes;
+        
+        for(let i = siblings.length -1; i >= 0; i--) {
+            
+            if(siblings[i].style.backgroundColor === "rgb(0, 123, 255)"){
+                siblings[i].style = "background-color: none;"
+                break;
+            }
+        }
+        e.target.style = "background-color: #007bff;"
+
+    }
+
     render() {
         let countriesJsx;
         if(this.state.countries) {
             countriesJsx = this.state.countries.map((country) =>
-            <Link key={country.cca3} to={{
+            <Link key={country.cca3}
+            onClick={(e) => this.changeColourBtn (e)}
+
+            to={{
               pathname: `/details/${country.cca3}`,
                query: {
                 name: country.name,
@@ -40,7 +58,7 @@ class Home extends Component {
 
         return (
             <div className="home-dashboard">
-                <div className="side-bar">
+                <div className="side-bar scrollbar scrollbar-primary">
                     {countriesJsx}
                 </div>
                 <div className="dashboard-view">
